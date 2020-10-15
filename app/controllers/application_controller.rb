@@ -8,7 +8,23 @@ class ApplicationController < ActionController::Base
 
     # params = {"number"=>42}
 
+    @num = params.fetch("number").to_f
+    @square = @num * @num
+
     render({ :template => "calculation_templates/square_results.html.erb"})
+  end
+
+  def sqrt_form
+
+    render({ :template => "calculation_templates/sqrt_form.html.erb"})
+  end
+
+  def calculate_sqrt
+
+    @num = params.fetch("number").to_f
+    @sqrt = @num ** 0.5
+    
+    render({ :template => "calculation_templates/sqrt_results.html.erb"})
   end
 
   def random_form
